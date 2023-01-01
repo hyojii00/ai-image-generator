@@ -1,0 +1,30 @@
+{
+  "name": "ai-image-generator",
+  "version": "1.0.0",
+  "description": "image generator using openai",
+  "main": "dist/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "tsc -w & npx nodemon dist/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hyojii00",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/env": "^4.2.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^6.6.0",
+    "@fastify/type-provider-typebox": "^2.4.0",
+    "@fastify/view": "^7.3.0",
+    "@sinclair/typebox": "^0.25.16",
+    "dotenv": "^16.0.3",
+    "fastify": "^4.10.2",
+    "nodemon": "^2.0.20",
+    "openai": "^3.1.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18",
+    "typescript": "^4.9.4"
+  }
+}

@@ -1,0 +1,39 @@
+html(lang="ko")
+  head 
+    meta(charset='utf-8')
+  body 
+    form(id='form') 
+      p
+        input(id='prompt' type="text" name="prompt")
+      p
+        input(id='size' type="text" name="size")
+      p
+        input(type="submit" value="confirm")
+    p
+      img(id='image' src='')
+  foot
+    script.
+      const onSubmit = async (e) => {
+        e.preventDefault();
+
+        const prompt = document.querySelector('#prompt').value;
+        const size = document.querySelector('#size').value;
+
+        await fetch('http://localhost:3000/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            prompt,
+            size,
+          }),
+        })
+        .then((res) => res.json())
+        .then((data) => {
+          document.querySelector('#image').src = data.url
+        });
+      };
+      
+      document.querySelector('#form').addEventListener('submit', onSubmit);
+    
